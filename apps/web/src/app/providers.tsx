@@ -1,5 +1,5 @@
 
-    'use client';
+'use client';
 
 import { useState } from 'react';
 import { WagmiProvider } from 'wagmi';
@@ -8,24 +8,27 @@ import { wagmiConfig } from '@/lib/wagmi';
 import { RainbowKitProvider, darkTheme, lightTheme } from '@rainbow-me/rainbowkit';
 import '@rainbow-me/rainbowkit/styles.css';
 
-    export function Providers({ children }: { children: React.ReactNode }) {
-      const [queryClient] = useState(() => new QueryClient());
+export function Providers({ children }: { children: React.ReactNode }) {
+  const [queryClient] = useState(() => new QueryClient());
 
-      return (
-        
-      <WagmiProvider config={wagmiConfig}>
-        <QueryClientProvider client={queryClient}>
-          
+  const appTheme = darkTheme({
+    accentColor: '#00d4ff', // accent-cyan
+    accentColorForeground: 'white',
+    borderRadius: 'medium',
+    fontStack: 'system',
+    overlayBlur: 'large',
+  });
+
+  return (
+    <WagmiProvider config={wagmiConfig}>
+      <QueryClientProvider client={queryClient}>
         <RainbowKitProvider
-          theme={{
-            lightMode: lightTheme(),
-            darkMode: darkTheme(),
-          }}
+          theme={appTheme}
+          modalSize="compact"
         >
           {children}
         </RainbowKitProvider>
-        </QueryClientProvider>
-      </WagmiProvider>
-      );
-    }
-  
+      </QueryClientProvider>
+    </WagmiProvider>
+  );
+}

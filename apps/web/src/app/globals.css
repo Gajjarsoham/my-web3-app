@@ -2,34 +2,25 @@
 @tailwind components;
 @tailwind utilities;
 
-    :root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 255, 255, 255;
-  --background-end-rgb: 245, 245, 245;
+@layer base {
+  body {
+    @apply bg-[#050508] text-[#e4e4ef];
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(79, 70, 229, 0.08), transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(192, 38, 211, 0.08), transparent 25%);
+  }
 }
 
-    
-    @media (prefers-color-scheme: dark) {
-      :root {
-        --foreground-rgb: 255, 255, 255;
-        --background-start-rgb: 0, 0, 0;
-        --background-end-rgb: 0, 0, 0;
-      }
-    }
+@layer utilities {
+  .glass-panel {
+    @apply bg-forge-surface/60 backdrop-blur-xl border border-forge-border/50 shadow-xl;
+  }
+  
+  .glass-card {
+    @apply bg-forge-elevated/40 backdrop-blur-lg border border-white/5 hover:border-accent-cyan/20 transition-all duration-300;
+  }
 
-    .dark {
-      --foreground-rgb: 255, 255, 255;
-      --background-start-rgb: 0, 0, 0;
-      --background-end-rgb: 0, 0, 0;
-    }
-    
-
-    body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-    to bottom,
-    transparent,
-    rgb(var(--background-end-rgb))
-        )
-  rgb(var(--background-start-rgb));
+  .text-gradient-cyan {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-accent-cyan to-accent-purple;
+  }
 }

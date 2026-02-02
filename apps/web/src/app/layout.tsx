@@ -1,29 +1,29 @@
 
-    import type { Metadata } from 'next';
-import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
+import { Space_Grotesk, JetBrains_Mono } from 'next/font/google';
 import './globals.css';
 import { Providers } from './providers';
 
-    const inter = Inter({ subsets: ['latin'] });
+const spaceGrotesk = Space_Grotesk({ subsets: ['latin'], variable: '--font-sans' });
+const jetbrainsMono = JetBrains_Mono({ subsets: ['latin'], variable: '--font-mono' });
 
-    export const metadata: Metadata = {
-      title: 'My-Clone-App',
-      description: 'A Web3 application built with Cradle',
-    };
+export const metadata: Metadata = {
+  title: 'Ostium Trading | Decentralized & Seamless',
+  description: 'Pro-grade decentralized trading platform powered by Ostium.',
+};
 
-    export default function RootLayout({
-      children,
-    }: {
-      children: React.ReactNode;
-    }) {
-      return (
-        <html lang="en" suppressHydrationWarning>
-          <body className={inter.className}>
-            <Providers>
-              {children}
-            </Providers>
-          </body>
-        </html>
-      );
-    }
-  
+export default function RootLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
+  return (
+    <html lang="en" suppressHydrationWarning className={`${spaceGrotesk.variable} ${jetbrainsMono.variable}`}>
+      <body className="bg-forge-bg text-forge-text font-sans antialiased min-h-screen selection:bg-accent-cyan/30">
+        <Providers>
+          {children}
+        </Providers>
+      </body>
+    </html>
+  );
+}
