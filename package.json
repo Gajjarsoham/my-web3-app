@@ -1,0 +1,25 @@
+{
+  "name": "my-dapp",
+  "version": "0.1.0",
+  "description": "A Web3 application - foundation built with Cradle",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "wallet:setup": "echo \"Get your WalletConnect Project ID from https://dashboard.reown.com\"",
+    "maxxit:setup": "echo \"See packages/maxxit-lazy-trader/README.md for setup instructions\"",
+    "ostium:setup": "echo \"See packages/ostium-onect/README.md for setup instructions\""
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "typescript": "^5.3.0"
+  },
+  "packageManager": "pnpm@9.0.0",
+  "license": "MIT",
+  "keywords": [
+    "web3",
+    "dapp"
+  ]
+}
